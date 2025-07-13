@@ -2,10 +2,11 @@ import pandas as pd
 from datetime import datetime, timedelta
 import hashlib
 from supabase import create_client, Client
+import os
 
-# Configuración de Supabase
-SUPABASE_URL = "https://epojtbegksylflbeqqhm.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwb2p0YmVna3N5bGZsYmVxcWhtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNjc5OTMsImV4cCI6MjA2Nzk0Mzk5M30.6sljAlrHYGFEfIsLybNfjwr4F3BW5uMAUuhApQeIbWU"
+# Configuración de Supabase desde variables de entorno
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_KEY = os.environ.get("SUPABASE_ANON_KEY")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
